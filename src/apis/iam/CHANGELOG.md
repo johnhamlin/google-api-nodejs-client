@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.0.1](https://github.com/googleapis/google-api-nodejs-client/compare/iam-v4.0.0...iam-v4.0.1) (2023-02-02)
+
+
+### Bug Fixes
+
+* **iam:** update the API ([092031f](https://github.com/googleapis/google-api-nodejs-client/commit/092031f3ccb9a7bb357c0e3701864c634f371f99))
+
 ## [4.0.0](https://github.com/googleapis/google-api-nodejs-client/compare/iam-v3.0.3...iam-v4.0.0) (2022-10-28)
 
 

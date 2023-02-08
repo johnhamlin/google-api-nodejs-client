@@ -3967,6 +3967,15 @@ export namespace documentai_v1 {
    */
   export interface Schema$GoogleCloudDocumentaiV1EnableProcessorResponse {}
   /**
+   * Metadata of the EvaluateProcessorVersion method.
+   */
+  export interface Schema$GoogleCloudDocumentaiV1EvaluateProcessorVersionMetadata {
+    /**
+     * The basic metadata of the long running operation.
+     */
+    commonMetadata?: Schema$GoogleCloudDocumentaiV1CommonOperationMetadata;
+  }
+  /**
    * Evaluates the given ProcessorVersion against the supplied documents.
    */
   export interface Schema$GoogleCloudDocumentaiV1EvaluateProcessorVersionRequest {
@@ -3974,6 +3983,15 @@ export namespace documentai_v1 {
      * Optional. The documents used in the evaluation. If unspecified, use the processor's dataset as evaluation input.
      */
     evaluationDocuments?: Schema$GoogleCloudDocumentaiV1BatchDocumentsInputConfig;
+  }
+  /**
+   * Metadata of the EvaluateProcessorVersion method.
+   */
+  export interface Schema$GoogleCloudDocumentaiV1EvaluateProcessorVersionResponse {
+    /**
+     * The resource name of the created evaluation.
+     */
+    evaluation?: string | null;
   }
   /**
    * An evaluation of a ProcessorVersion's performance.
@@ -4529,6 +4547,44 @@ export namespace documentai_v1 {
    */
   export interface Schema$GoogleCloudDocumentaiV1SetDefaultProcessorVersionResponse {}
   /**
+   * The metadata that represents a processor version being created.
+   */
+  export interface Schema$GoogleCloudDocumentaiV1TrainProcessorVersionMetadata {
+    /**
+     * The basic metadata of the long running operation.
+     */
+    commonMetadata?: Schema$GoogleCloudDocumentaiV1CommonOperationMetadata;
+    /**
+     * The test dataset validation information.
+     */
+    testDatasetValidation?: Schema$GoogleCloudDocumentaiV1TrainProcessorVersionMetadataDatasetValidation;
+    /**
+     * The training dataset validation information.
+     */
+    trainingDatasetValidation?: Schema$GoogleCloudDocumentaiV1TrainProcessorVersionMetadataDatasetValidation;
+  }
+  /**
+   * The dataset validation information. This includes any and all errors with documents and the dataset.
+   */
+  export interface Schema$GoogleCloudDocumentaiV1TrainProcessorVersionMetadataDatasetValidation {
+    /**
+     * The total number of dataset errors.
+     */
+    datasetErrorCount?: number | null;
+    /**
+     * Error information for the dataset as a whole. A maximum of 10 dataset errors will be returned. A single dataset error is terminal for training.
+     */
+    datasetErrors?: Schema$GoogleRpcStatus[];
+    /**
+     * The total number of document errors.
+     */
+    documentErrorCount?: number | null;
+    /**
+     * Error information pertaining to specific documents. A maximum of 10 document errors will be returned. Any document with errors will not be used throughout training.
+     */
+    documentErrors?: Schema$GoogleRpcStatus[];
+  }
+  /**
    * Request message for the create processor version method.
    */
   export interface Schema$GoogleCloudDocumentaiV1TrainProcessorVersionRequest {
@@ -4561,6 +4617,15 @@ export namespace documentai_v1 {
      * The documents used for training the new version.
      */
     trainingDocuments?: Schema$GoogleCloudDocumentaiV1BatchDocumentsInputConfig;
+  }
+  /**
+   * The response for the TrainProcessorVersion method.
+   */
+  export interface Schema$GoogleCloudDocumentaiV1TrainProcessorVersionResponse {
+    /**
+     * The resource name of the processor version produced by training.
+     */
+    processorVersion?: string | null;
   }
   /**
    * The long running operation metadata for the undeploy processor version method.
